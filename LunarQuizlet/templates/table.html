@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lunar Quizlet</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid white;
+    }
+
+    th {
+      background-color: lunarviolet;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      background-color: lunarviolet;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: darkviolet;
+    }
+  </style>
+</head>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+<body>
+  <h1>Welcome to Quizlet</h1>
+  <p>Here are your added words:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Word</th>
+        <th>Translation</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p>Click this button to edit:</p>
+  <form method="POST" action="{{ url_for('editable_table') }}">
+    <!-- form fields -->
+    <button type="submit" value="editor">Go to Editor</button>
+  </form>
+</body>
+</html>

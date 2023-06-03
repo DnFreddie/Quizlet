@@ -1,0 +1,134 @@
+<html>
+<head>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+  <title>Quizlet Add</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th:first-child,
+    td:first-child {
+      padding-left: 5px; /* Adjust the value as needed */
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #555;
+      color: #fff;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    p {
+      margin-top: 20px;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" action="/save-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Translation</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          
+          <td>
+            <input type="text" name="column2[]" value="{{ row[1] }}">
+          </td>
+          <td>
+            <input type="text" name="column3[]" value="{{ row[2] }}">
+          </td>
+          <td>
+    <td><button onClick="deleteRow(this);" class="delete">Remove</button></td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td>
+            <input type="text" name="column4[]">
+          </td>
+          <td>
+            <input type="text" name="column5[]">
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+<script>
+function deleteRow(button) {
+  const tr = button.parentNode.parentNode;
+  const column2Value = tr.querySelector('input[name="column2[]"]').value;
+  const column3Value = tr.querySelector('input[name="column3[]"]').value;
+  
+  // Store the values of the deleted row in an object
+  const rowData = {
+    column1: column2Value,
+    column2: column3Value
+  };
+  
+  // Make  request to the Flask route
+  fetch('/delete-row', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(rowData)
+  })
+  .then(response => {
+      console.log("Its succesfull")
+      return response.json
+  })
+  .catch(error => { console.log("error")
+  });
+  
+  // Remove the row from the table
+  tr.parentNode.removeChild(tr);
+}
+</script>
+    <button type="submit" name="save">Save</button>
+    <button type="submit" name="save">Add word</button>
+  </form>
+<button onclick="window.location.href='{{ url_for('display_data') }}'" class="home-button">Home</button>
+</body>
+</html>
