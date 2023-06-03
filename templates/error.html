@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+  <title>Error</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upps, something went wrong...</h1>
+  <p>Maybe it's one of these 3 cases:</p>
+  <p>- You didn't add any words</p>
+  <p>- You didn't install all of the dependencies</p>
+  <img src="static/error.png" alt="Error 404">
+</body>
+</html>
