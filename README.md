@@ -1,6 +1,9 @@
 # Lunar Quzilet 
 This is a simple version of quizlet 
 Without any unnessery compotents 
+##Startup
+- In order to stat
+
 ## Functionalities 
 - By clicing **Edit Table** in main menu
  U can add remove any word in  table
