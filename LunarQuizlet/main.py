@@ -59,10 +59,10 @@ class FirstWindow(QWidget):
         server = "app.py"
         if os.path.exists(server) == True:
             try :
-                subprocess.Popen(["python",server])
+                os.system(f"python {server}")
                 webbrowser.open('http://127.0.0.1:5000/')
             except subprocess.CalledProcessError:
-                print("can run the file ")
+                print("can't run the file ")
 
 # Add words window
 class SecondWindow(QWidget):
