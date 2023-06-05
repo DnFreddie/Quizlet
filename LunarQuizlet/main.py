@@ -59,7 +59,7 @@ class FirstWindow(QWidget):
         server = "app.py"
         if os.path.exists(server) == True:
             try :
-                os.system(f"python {server}")
+                os.system(f"/usr/bin/python {server}")
                 webbrowser.open('http://127.0.0.1:5000/')
             except subprocess.CalledProcessError:
                 print("can't run the file ")
