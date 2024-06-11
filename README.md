@@ -1,14 +1,15 @@
-# Lunar Quzilet 
-This is a simple version of quizlet 
-Without any unnessery compotents 
-##Startup
-- In order to stat
+# Lunar Quizlet
 
-## Functionalities 
-- By clicing **Edit Table** in main menu
- U can add remove any word in  table
-- U can also add words one by one in  **"Add new  words section"**\
-- In **Revise Section** u can study words by inserting the correct translation 
-    - In any moment it allwos u to show the  **Solution**
-    - By every wrong answer the *hint* will be displayed 
+This is a simplified version of Quizlet without any unnecessary components.
 
+## Startup
+
+To start the app:
+
+## Functionalities
+
+- By clicking **Edit Table** in the main menu, you can add or remove any word in the table.
+- You can also add words one by one in the **"Add New Words" section**.
+- In the **Revise Section**, you can study words by inserting the correct translation.
+  - At any moment, it allows you to show the **Solution**.
+  - For every wrong answer, a hint will be displayed.
